@@ -1,0 +1,12 @@
+int hackerrankCity(vector<int> A) {
+   long long x=0,y=1,z=0,ans=0;
+    int m=1000000007,n=A.size();
+     for (int i=0;i<n;i++) {
+        ans=(ans*4+(y*12+8)%m*x%m+(y*12+8)%m*y%m*A[i]+(y*2+1)%m*(y*2+1)%m*A[i])%m;
+        x=  (x*4+(z+A[i]*2)%m*y%m+(z+A[i]*3)%m*y%m*2+z*2+A[i]*3)%m;
+        y=  (y*4+2)%m;  
+        z=  (z*2+A[i]*3)%m;
+        ans=(ans%m);
+    }
+    return ans;
+}
